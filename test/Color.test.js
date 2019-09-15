@@ -46,4 +46,26 @@ contract('Color', (accounts) => {
             await contract.mint('#FFFFF').should.be.rejected;
         })
     })
+
+    describe("indexing", async () => {
+        it('List colors', async () => {
+            await contract.mint('#ddddd');
+            await contract.mint('#ededed');
+            await contract.mint('#f3f3f3');
+
+            const totalSupply = await contract.totalSupply();
+            let color
+
+            let result = []
+
+            for (let i = 0; i < totalSupply; i++) {
+                color = await contract.colors(i)
+                result.push(color)
+            }
+
+            let expected = ['#FFFFF', '#ddddd', "#ededed", "#f3f3f3"]
+            assert.equal(result.join(','), expected.join(','))
+
+        })
+    })
 })
