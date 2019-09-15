@@ -11,10 +11,21 @@ export default {
         const networkId = await window.web3.eth.net.getId()
         if (colorABI.networks[networkId]) {
             const address = colorABI.networks[networkId].address
-            const colorContract = new web3.eth.Contract(colorABI.abi, address)
+            const contract = new web3.eth.Contract(colorABI.abi, address)
+            const totalSupply = await contract.methods.totalSupply().call()
+
+            store.commit('setContract', contract)
+
+            for (let i = 0; i < totalSupply; i++) {
+                store.commit('addColor', await contract.methods.colors(i).call())
+            }
+
         } else {
             window.alert('Contract not deployed to detected newtwork')
         }
+    },
+    addColor(store, payload) {
+        store.commit('addColor', payload)
     }
 
 }

@@ -1874,12 +1874,12 @@
         }
       },
       "links": {},
-      "address": "0xfA8E1c78d8A9C6BC488B9E6E6cad352EecA0Fd98",
-      "transactionHash": "0x81f7303f752465d912a6dd0221a39e45d617602799ee165f53831caf0aac2281"
+      "address": "0x680272bF7C18B25Eb34A84A2eA7bc7B65411b3e0",
+      "transactionHash": "0x4bcbf3d90625ea4725329c949259d027d90595bf4f831caeb7f4d17876ba2afc"
     }
   },
   "schemaVersion": "3.0.15",
-  "updatedAt": "2019-09-15T15:54:54.082Z",
+  "updatedAt": "2019-09-15T20:28:30.845Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {
